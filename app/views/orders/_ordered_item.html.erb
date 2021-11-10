@@ -1,5 +1,5 @@
-  <p><%= item.product.name %></p>
-  <p><%= item.product.description %></p>
-  <%= image_tag item.product.image.url, class: 'main-img' %>
+  <p><%= product.name %></p>
+  <p><%= product.description %></p>
+  <%= image_tag product.image.url, class: 'main-img' %>
   <p><%= item.quantity %> </p>
   <p><%= humanized_money_with_symbol item.item_price_cents %> </p>

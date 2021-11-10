@@ -8,11 +8,7 @@
     <h4>Thank you for your order, <%= @order.email %>!</h4>
     <h4>Your total was <%= humanized_money_with_symbol @order.total_cents %></h4>
     <% @order.line_items.each do |item| %>
-      <p><%= item.product.name %></p>
-      <p><%= item.product.description %></p>
-      <%= image_tag item.product.image.tiny, class: 'main-img' %>
-      <p><%= item.quantity %> </p>
-      <p><%= humanized_money_with_symbol item.item_price_cents %> </p>
+      <%= render 'ordered_item', product: item.product, item: item %>
     <% end %>
   </div>
 
