@@ -8,16 +8,13 @@ class User < ActiveRecord::Base
   validates :last_name,             presence: true
 
   def self.authenticate_with_credentials(email, password)
-    User.update_all('email = LOWER(email)')
-    if (email)
-      email = email.strip.downcase
-      user = User.find_by_email(email)
-      if user && user.authenticate(password)
+    users = User.all
+    users.each do |user|
+      if user.email.downcase == email.strip.downcase && user.authenticate(password)
         return user
-      else
-        return nil
       end
     end
+    return nil
   end
 
 end
