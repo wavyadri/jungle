@@ -101,7 +101,7 @@ RSpec.describe User, type: :model do
     end
 
     it "return user with valid email in a different case than the sign up email and valid password" do
-      @user = User.new(:first_name => 'Adri', :last_name => "Ana", :email => "adriana@gmail.com", :password => "123456789", :password_confirmation => "123456789")
+      @user = User.new(:first_name => 'Adri', :last_name => "Ana", :email => "Adriana@gmail.com", :password => "123456789", :password_confirmation => "123456789")
       @user.save
 
       expect(User.authenticate_with_credentials('ADRIANA@Gmail.Com', @user.password)).to eq(@user)
