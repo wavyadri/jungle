@@ -28,7 +28,9 @@ RSpec.feature "Click on a product and see its details", type: :feature, js: true
     expect(page).to have_css("img[src*='apparel1.jpg']")
 
     # DEBUG
-    save_screenshot
+    # save_screenshot
+    # puts page.html
+
 
   end
 end
